@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bilal's Portfolio - Web Developer and Machine Learning Engineer">
+  <meta name="keywords" content="Bilal, Web Developer, Machine Learning, Data SciPortfolio">
+  <meta name="author" content="Bilal">ence, 
+
+  <title>It's Bali here"</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: url('/img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: rgba(13, 27, 42, 0.9);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    animation: slideDown 1s ease forwards;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffcc00;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: navFade 0.5s ease forwards;
+  }
+
+  .nav-links li:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+
+  .nav-links li:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+
+  .nav-links li:nth-child(3) {
+    animation-delay: 0.9s;
+  }
+
+  .nav-links li:nth-child(4) {
+    animation-delay: 1.1s;
+  }
+
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+  }
+
+  /* Black transparent shield over entire page */
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* semi-transparent black */
+    min-height: 100vh;
+    width: 100%;
+    backdrop-filter: brightness(0.8);
+    padding-bottom: 60px;
+  }
+
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: rgb(10, 10, 10);
+    transition: all 0.3s ease;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 140px 20px;
+    backdrop-filter: brightness(0.5);
+    animation: fadeInUp 1.5s ease forwards;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #a0a0a0;
+    animation: fadeInUp 2s ease forwards;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ddd;
+    animation: fadeInUp 2.5s ease forwards;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    animation: fadeInUp 3s ease forwards;
+    transition: transform 0.3s ease;
+  }
+
+  .btn:hover {
+    animation: pulse 0.8s infinite;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes navFade {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(13, 27, 42, 0.95);
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      display: none;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links li {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  section {
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease forwards;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+  }
+
+  section p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #8b8787;
+  }
+
+  /* Skills */
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .skill {
+    background: rgba(15, 15, 15, 0.1);
+    border: 1px solid #ffcc00;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    animation: fadeInUp 1s ease;
+  }
+
+  /* Projects */
+  .project-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  .project-card {
+    background: rgba(14, 14, 13, 0.781);
+    border: 1px solid #fbff00;
+    padding: 30px;
+    width: 280px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+  }
+  
+
+  /* Footer */
+  .footer {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .footer .btn {
+    margin-top: 20px;
+  }
+
+  .footer1 {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("hamburger").addEventListener("click", function () {
+      document.getElementById("nav-links").classList.toggle("show");
+    });
+  });
+</script>
+
+
+</head>
+
+<body>
+  <div class="overlay">
+    <header>
+      <div class="logo">It's Bali here</div>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="projects.html">Services</a></li>
+          <li><a href="/Skills.html">Skills</a></li>
+          <li><a href="/contect.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Hi, I'm Bilal</h1>
+      <p>Web Developer | Machine Learning Engineer | Data Scientist</p>
+      <a href="projects.html" class="btn">View My Work</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <h2>About Me</h2>
+      <p>I'm Bilal, a passionate Web Developer and Machine Learning enthusiast. I love building fast, scalable, and
+        smart applications.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Python</div>
+        <div class="skill">React</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">data sanice</div>
+        <div class="skill">graces editing</div>
+      </div>
+    </section>
+
+    <!-- Projects Preview -->
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="/img/project1.jpg" alt="Project 1" style="width:100%; border-radius: 8px;">
+        <h3 style="margin-top: 10px;">Portfolio Website</h3>
+        <p style="font-size: 0.9rem; color: #ccc;">A website developed for a travel YouTuber using HTML, CSS, JavaScript, and AI. The site features engaging content, optimized design, and interactive elements for a seamless user experience.
+
+        </p>
+        <a href="https://hamzatravelworld.netlify.app" target="_blank" style="color: #ffcc00;">View Project</a>
+      </div>
+    
+      <div class="project-card">
+        <img src="/img/project2.jpg" alt="Project 2" style="width:100%; border-radius: 8px;">
+        <h3 style="margin-top: 10px;">ML Model</h3>
+        <p style="font-size: 0.9rem; color: #ccc;">A machine learning model that predicts house prices using Python.</p>
+        <a href="https://github.com/yourusername/house-price-model" target="_blank" style="color: #ffcc00;">View Project</a>
+      </div>
+    </div>
+    
+    <!-- Footer / Contact -->
+    <footer class="footer">
+      <p>Let's work together! 💼</p>
+    </footer>
+  </div>
+ 
+  <div class="footer1">
+    copyright &copy; 2025 Its Bali here. All rights reserved.
+  </div>
+
+  <!-- Hamburger Script -->
+  <script>
+    document.getElementById("hamburger").addEventListener("click", function () {
+      document.getElementById("nav-links").classList.toggle("show");
+    });
+  </script>
+</body>
+
+</html>
